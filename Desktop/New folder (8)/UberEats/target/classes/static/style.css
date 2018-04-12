@@ -1,0 +1,80 @@
+body{
+    background-color: firebrick;
+   margin: 0px;
+    font-size: 14px
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    color: dodgerblue
+}
+form{
+    margin: 20px auto;
+    width: 320px;
+    color: aqua;
+}
+input{
+    padding: 10px;
+    font-size: inherit;
+    
+}
+input[type="password"]
+{
+    width:  334px;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    background-color: #FAF6D9;
+    
+    
+}
+input[type="email"]
+{
+    width:  334px;
+    display: block;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    background-color: #FAF6D9;
+    
+}
+input[type="submit"]
+{
+    width:  334px;
+   background-color: bisque    
+}
+input:focus{
+    background-color: white;
+}
+#navbar{
+    background-color: aqua;
+     padding: 10px;
+    margin: 10px;
+   height: 50px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+#navbar ul{
+    list-style-type: none;
+    text-align: right;
+}
+#navbar ul li{
+   display: inline;
+}
+#navbar ul li h2{
+  
+}
+#main{
+    background-color: aqua;
+    margin-left: 350px;
+    margin-right: 350px;
+    
+   font-size: 110%;
+    padding: 20px;
+     border-radius: 5px;
+}
+#infor{
+    background-color: blue;
+    margin: 19px;
+    padding: 10px;
+    border-radius: 5px;
+}

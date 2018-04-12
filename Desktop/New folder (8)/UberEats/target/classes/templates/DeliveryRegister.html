@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Delivery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body>
+       
+            <div class="navbar">
+                <ul><li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a href="/">Home</a></li>
+                      
+                    <li><a href="Pastry.html">Pastry</a></li>
+                    <li><a href="BBQ.html">BBQ</a></li>
+                    <li><a href="Pizza.html">Pizza</a></li>
+                    <li><a href="Burger.html">Burger</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="/" ng-click="logOut()">Log Out</a></li>
+                </ul>
+
+            </div>
+
+ <div class="container" ng-app="app">
+
+            <div class="row">
+                <div class="col-4" style="float:left;">
+
+                </div>
+                <div class="col-4" style="float:left;">
+                    <h1>Delivery Details</h1>
+                </div>
+                <div class="col-4" style="float:left;">
+
+                </div>
+            </div>
+
+            <div ng-controller="postDeliveryController" class="col-md-12">
+                <form name="deliveryForm" ng-submit="submitDelivery(deliveryForm.$valid)" novalidate="true" class="reg">
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.deliverydate.$invalid }">
+
+                        <input type="text" name="deliverydate" class="form-control" ng-model="deliverydate" placeholder="Delivery Date (DD/MM/YYYY)" required="true"/>
+                        <p ng-show="deliveryForm.deliverydate.$invalid" class="help-block">Delivery Date is required.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.recipientname.$invalid }">
+
+                        <input type="text" name="recipientname" class="form-control" ng-model="recipientname" placeholder="Enter Recipient Name" required="true" ng-minlength="3"/>
+                        <p ng-show="deliveryForm.recipientname.$invalid" class="help-block">Recipient Name is required.</p>
+                        <p ng-show="deliveryForm.recipientname.$error.minlength" class="help-block">Recipient Name is too short.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.recipientsurname.$invalid }">
+
+                        <input type="text" name="recipientsurname" class="form-control" ng-model="recipientsurname" placeholder="Enter Recipient Surname" required="true" ng-minlength="3"/>
+                        <p ng-show="deliveryForm.recipientsurname.$invalid" class="help-block">Recipient Surname is required.</p>
+                        <p ng-show="deliveryForm.recipientsurname.$error.minlength" class="help-block">Recipient Surname is too short.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.recipientphone.$invalid }">
+
+                        <input type="text" name="recipientphone" class="form-control" ng-model="recipientphone" placeholder="Enter Recipient Phone Number" required="true" ng-minlength="10" ng-maxlength="10"/>
+                        <p ng-show="deliveryForm.recipientphone.$invalid" class="help-block">Recipient Phone Number is required.</p>
+                        <p ng-show="deliveryForm.recipientphone.$error.minlength" class="help-block">Recipient Phone Number should be 10 digits.</p>
+                        <p ng-show="deliveryForm.recipientphone.$error.maxlength" class="help-block">Recipient Phone Number should be 10 digits.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.streetname.$invalid }">
+
+                        <input type="text" name="streetname" class="form-control" ng-model="streetname" placeholder="Enter Street Name" required="true" ng-minlength="3"/>
+                        <p ng-show="deliveryForm.streetname.$invalid" class="help-block">Street Name is required.</p>
+                        <p ng-show="deliveryForm.streetname.$error.minlength" class="help-block">Street Name is too short.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.areaname.$invalid }">
+
+                        <input type="text" name="areaname" class="form-control" ng-model="areaname" placeholder="Enter Area Name" required="true" ng-minlength="3"/>
+                        <p ng-show="deliveryForm.areaname.$invalid" class="help-block">Area Name is required.</p>
+                        <p ng-show="deliveryForm.areaname.$error.minlength" class="help-block">Area Name is too short.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.city.$invalid }">
+
+                        <input type="text" name="city" class="form-control" ng-model="city" placeholder="Enter City" required="true" ng-minlength="3"/>
+                        <p ng-show="deliveryForm.city.$invalid" class="help-block">City is required.</p>
+                        <p ng-show="deliveryForm.city.$error.minlength" class="help-block">City is too short.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.province.$invalid }">
+
+                        <input type="text" name="province" class="form-control" ng-model="province" placeholder="Enter Province" required="true" ng-minlength="3"/>
+                        <p ng-show="deliveryForm.province.$invalid" class="help-block">Province is required.</p>
+                        <p ng-show="deliveryForm.province.$error.minlength" class="help-block">Province is too short.</p>
+
+                    </div>
+
+                    <div class="form-group" ng-class="{ 'has-error' :deliveryForm.additionalinformation.$invalid }">
+
+                        <input type="text" name="additionalinformation" class="form-control" ng-model="additionalinformation" placeholder="Enter Additional Information"/>
+
+                    </div>
+
+                    <br/><button class="btn-panel-big" ng-disabled="deliveryForm.$invalid">Send Delivery Details</button>
+
+                </form>
+          
+            <br />
+
+            <p class="results">{{postResultMessage}}</p>
+
+            <div ng-show="receipt">
+                <button style="float: right" ng-click="getReceipt()">Get Receipt</button>
+            </div>
+
+        </div>
+  </div>
+
+    </body>
+</html>

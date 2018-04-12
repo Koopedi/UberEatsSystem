@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Update Restaurant</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body>
+       
+   <div class="navbar">
+              <ul><li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a class="active" href="ManageProducts.html">Add Products</a></li>
+                     <li><a class="active" href="UpdateProduct.html">Update Products</a></li>
+                  
+                    <li><a class="active" href="DeleteProduct.html">Delete Products</a></li>
+                    
+                    <li><a href="/">Log Out</a></li>             
+                </ul>
+                
+            </div>
+      
+            <div class="row">
+                <div class="col-4" style="float:left;">
+
+                </div>
+                <div class="col-4" style="float:left;">
+                    <h1>Welcome Administrator</h1>
+                </div>
+                <div class="col-4" style="float:left;">
+
+                </div>
+            </div>
+ <div class="container" ng-app="app">
+            <div class="row">
+
+          <!--      <div ng-controller="postRestuarantController" class="col-md-6">
+
+                   <h1> Update  Restaurant </h1>
+                    <form name="add" ng-submit="submitRestuarant(add.$valid)">
+                        
+                        
+ <div class="form-group" ng-class="{'has-error':add.id.$invalid}">
+                            <input type="text" name="id" class="form-control" ng-model="id" placeholder="Enter Restuarant Name" required="true"/>
+                            <p  ng-show="add.id.$invalid" class="help-block">Restaurant ID is required</p>
+                        </div>
+                       
+                        
+                        <div class="form-group" ng-class="{'has-error':add.restuarantName.$invalid}">
+                            <input type="text" name="restuarantName" class="form-control" ng-model="restuarantName" placeholder="Enter Restuarant Name" required="true"/>
+                            <p  ng-show="add.restuarantName.$invalid" class="help-block">Restaurant Name is required</p>
+                        </div>
+                        <br/>
+                        
+                        <div class="form-group" ng-class="{'has-error':add.streetName.$invalid}">
+                            <input type="text" name="streetName" class="form-control" ng-model="streetName" placeholder="Enter street Name" required="true"/>
+                            <p  ng-show="add.streetName.$invalid" class="help-block">street  Name is required</p>
+                        </div>
+                        
+                        
+                <div class="form-group" ng-class="{'has-error':add.areaName.$invalid}">
+                            <input type="text" name="areaName" class="form-control" ng-model="areaName" placeholder="area Name" required="true"/>
+                            <p  ng-show="add.areaName.$invalid" class="help-block">street  Name is required</p>
+                        </div>        
+                         <div class="form-group" ng-class="{'has-error':add.city.$invalid}">
+                            <input type="text" name="city" class="form-control" ng-model="city" placeholder="city Name" required="true"/>
+                            <p  ng-show="add.city.$invalid" class="help-block">city  Name is required</p>
+                        </div> 
+                        
+                         <div class="form-group" ng-class="{'has-error':add.province.$invalid}">
+                            <input type="text" name="province" class="form-control" ng-model="province" placeholder="province Name" required="true"/>
+                            <p  ng-show="add.province.$invalid" class="help-block">province  Name is required</p>
+                        </div> 
+                        
+                        <div class="form-group" ng-class="{'has-error':add.email.$invalid}">
+                            <input type="email" name="email" class="form-control" ng-model="email" placeholder="email" required="true"/>
+                            <p  ng-show="add.email.$invalid" class="help-block">email is required</p>
+                        </div> 
+                        
+                        <div class="form-group" ng-class="{'has-error':add.phone.$invalid}">
+                            <input type="text" name="phone" class="form-control" ng-model="phone" placeholder="phone" required="true"/>
+                            <p  ng-show="add.phone.$invalid" class="help-block">phone is required</p>
+                        </div> 
+                        
+                    <br/><button class="btn-panel-big2">Add New Restaurant</button>
+                    </form>
+                 
+                  
+
+             
+
+      
+             
+          
+
+                </div> 
+
+            </div>
+     
+     
+          <div ng-controller="getProductByNameDeleteController" class="col-md-6" ng-show="false">
+                    <h1> Delete Products</h1>
+
+                    <input type="text" class="form-control" ng-model="productnames" placeholder="Enter Product Name"/><br />
+                    <button ng-click="getProductByName()">Get Product</button>
+
+                    <div ng-show="showProductByName">
+                        <table class="new">
+                            <td ng-repeat="product in allproductsbyname.data">
+
+                                {{product.id}}<br />
+                                Product Name: <input type="text" value="{{product.productName}}" ng-disabled="true"/><br />
+                                Price: <input type="text" value="{{product.unitPrice}}" ng-disabled="true"/><br />
+                                Quantity: <input type="text" value="{{product.productQuantity}}" ng-disabled="true"/><br />
+
+                                <button ng-click="deleteProduct(product)">Delete Product</button>
+                            </td>
+                        </table>
+
+                    </div>
+
+                    <p class="results">{{getResultMessage}}</p>
+
+                </div>  getRestuarantByNameToController   -->
+     
+    <div ng-controller="getRestuarantByNameToController" class="col-md-6">
+                    <h1> Update Products</h1>
+
+                    <input type="text" class="form-control" ng-model="restuarantName" placeholder="Enter Restuarant Name"/><br />
+                    <button ng-click="getRestaurant()">Get Restaurant</button>
+
+                    <div ng-show="showRestaurant">
+                        <table class="new">
+                            <td ng-repeat=" restaurant in allRestuarantByName.data">
+                                 restaurant id = {{restaurant.id}}<br/>
+                Restaurant Name = {{restaurant.restuarantName}} <input type="text" ng-model="restaurant.restuarantName"/><br />
+               Restaurant Street Name = {{restaurant.streetName}}<input type="text" ng-model="restaurant.streetName"/><br />
+                Restaurant Area Name = {{restaurant.areaName}}<input type="text" ng-model="restaurant.areaName"/><br />
+               Restaurant City = {{restaurant.city}}<input type="text" ng-model="restaurant.city"/><br />
+               Restaurant Province = {{restaurant.province}}<input type="text" ng-model="restaurant.province"/><br />
+                Restaurant Email = {{restaurant.email}}<input type="text" ng-model="restaurant.email"/><br />
+                Restaurant Phone = {{restaurant.phone}}<input type="text" ng-model="restaurant.phone"/><br />
+                                
+                                
+
+                                
+
+                                <button ng-click="updateRestaurant(restaurant)">Update Restaurant</button>
+                            </td>
+                        </table>
+
+                    </div>
+
+                    <p class="results">{{getResultMessage}}</p>
+
+                </div>
+        </div>    
+    </body>
+</html>

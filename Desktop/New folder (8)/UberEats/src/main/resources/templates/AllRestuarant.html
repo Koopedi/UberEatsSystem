@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app="app">
+    <head>
+        <title>All Restaurants</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body    ng-controller="getAllRestaurantController" >
+     
+   <div class="navbar">
+                <ul>
+                    <li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a href="/">Home</a></li>
+                   
+                   <li><a href="Pastry.html">Pastry</a></li>
+                    <li><a href="BBQ.html">BBQ</a></li>
+                    <li><a href="Pizza.html">Pizza</a></li>
+                    <li><a href="Burger.html">Burger</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="Registration.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+
+                </ul>
+                
+            </div>
+        <div class="container" >
+        <p ng-init="getAllRestaurant()"></p>
+          
+        <div class="row"    >
+             <div ng-show="showAllRestaurant"> 
+            <div class="col-sm-4"   ng-repeat="rest in AllRestData.data | limitTo : 1 :0"  >
+              
+             
+                <a href="KFC.html">  <div class="restInfo" >
+                 <img src="{{rest.imageFile}}" alt='product image' width="150" height="160"/>   <br/>
+            Address:     {{rest.streetName}}  , {{rest.areaName}}  
+                     {{rest.id}}
+               </div></a>
+            </div>
+                 
+                 
+               <div class="col-sm-4"   ng-repeat="rest in AllRestData.data | limitTo : 1 :1"  >
+              
+             
+                 <a href="RocoMamas.html"> <div class="restInfo" >
+                  
+                   <img src="{{rest.imageFile}}" alt='product image' width="150" height="160"/>   <br/>
+                 
+            Address  :    {{rest.streetName}}  , {{rest.areaName}} 
+               </div></a>
+            </div>
+                 
+                 
+                 
+                  <div class="col-sm-4"   ng-repeat="rest in AllRestData.data | limitTo : 1 :2"  >
+              
+             
+                <a href="KungfuKitchen.html">  <div class="restInfo" >
+                  
+                   <img src="{{rest.imageFile}}" alt='product image' width="150" height="160"/>   <br/>
+                 
+            Address  :   {{rest.streetName}}  , {{rest.areaName}} 
+               </div></a>
+            </div>
+                 
+                 
+                
+                 
+                  <div class="col-sm-4"   ng-repeat="rest in AllRestData.data | limitTo : 1 :3"  >
+              
+             
+                <a href="Nandos.html">  <div class="restInfo" >
+                   
+                    <img src="{{rest.imageFile}}" alt='product image' width="150" height="160"/>   <br/>
+                 
+            Address   :  {{rest.streetName}}  , {{rest.areaName}} 
+               </div></a>
+            </div>
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+             </div>  
+                 
+                 
+                 
+                 
+                 
+                 
+             </div>
+            
+            
+            
+          <!--  <div class="col-sm-4">
+              
+               <a href="RocoMamas.html">  <div class="restInfo">
+                   <img src="/images/roco.jpg  " alt='product image' width="150" height="160"/>
+               </div></a>
+            </div>
+            <div class="col-sm-4">
+             
+                <a href="KungfuKitchen.html">  <div class="restInfo">
+                  <img src=" /images/22622.jpg " alt='product image' width="150" height="160"/>
+               </div></a>
+            </div>-->
+        </div>
+        
+           <!-- <div class="row">
+            <div class="col-sm-4">
+              
+               <a href="McDonalds.html">   <a href="Wimpy.html">  <div class="restInfo">
+                   <img src="/images/Wimpy.png  " alt='product image' width="150" height="160"/>
+               </div></a>
+            </div>
+            <div class="col-sm-4">
+              
+               <a href="McDonalds.html">  <div class="restInfo">
+                  <img src="/images/macdonald.jpg " alt='product image' width="150" height="160"/>
+               </div></a>
+            </div>
+            <div class="col-sm-4">
+              
+               
+                <a href="Nandos.html">  <div class="restInfo">
+                   <img src=" /images/nandos.png " alt='product image' width="150" height="160"/>
+               </div></a>
+            </div>
+        </div>-->
+         
+     
+   
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body>
+        
+   <div class="navbar">
+                 <ul><li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a href="/">Home</a></li>
+                   
+                   <li><a href="Pastry.html">Pastry</a></li>
+                    <li><a href="BBQ.html">BBQ</a></li>
+                    <li><a href="Pizza.html">Pizza</a></li>
+                    <li><a href="Burger.html">Burger</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    
+                    <li><a href="Contact.html">Contact Us</a></li>
+                
+                    <li><a href="Registration.html">Register</a></li>
+                    <li><a class="active" href="login.html">Login</a></li>
+                </ul>
+                
+            </div>
+    <div class="container" ng-app="app">
+            <div class="row">
+
+                <div ng-controller="getUserByEmailAndPasswordTwoController" class="col-md-12">
+
+                    <div class="row" >
+                        <div class="col-4" style="float:left;">
+
+                        </div>
+                        <div class="col-4" style="float:left;">
+                            <h1>User Login </h1>
+                        </div>
+                        <div class="col-4" style="float:left;">
+
+                        </div>
+                    </div>
+
+                    <form name="userForm" ng-submit="submitLogin()" novalidate="true" class="reg">
+                        
+
+                            <input type="text" ng-model="email" placeholder="Enter Email Address" id="emailaddress"/>										
+
+                            <input ng-show="showpassword" type="text" ng-model="password"/>
+                            <input ng-hide="showpassword" type="password" ng-model="password" placeholder="Enter Password"/>
+                    
+
+                            <br /><button class="btn-panel-big1">Login</button><button class="btn-login-register"> <a href="Registration.html">Register</a></button>
+                            
+                            <br/><br/><br/>
+<!--Click <a href="RegisterCustomer.html"> here </a> to register-->
+                    </form>
+                    <p>{{getResultMessage}}</p> 
+                    
+                    
+                </div>
+
+            </div>
+            
+        </div>
+
+    </body>
+</html>

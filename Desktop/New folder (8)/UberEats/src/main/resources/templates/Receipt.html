@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Receipt</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body>
+
+                   <div class="navbar">
+               <ul><li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a href="/" ng-click="logOut()">Log Out</a></li>
+                </ul>
+                
+            </div>
+            		
+        <div class="container" ng-app="app">
+
+            <div ng-controller="getReceiptController" class="col-md-12">
+            <div class="row">
+                <div class="col-4" style="float:left;">
+
+                </div>
+                <div class="col-4" style="float:left;">
+                    <h1>Customer Receipt</h1>
+                </div>
+                <div class="col-4" style="float:left;">
+
+                </div>
+            </div>
+
+                <div id="printarea">
+                    <p style="text-align: right;"><img src="/images/logo.png" alt="Description" class="top"/></p><br/>
+                    
+                    <p>Customer Name: {{customername}}</p>                 
+                    <p>Delivery Number: {{num}}</p>
+                    <p>Delivery Date: {{date}}</p>
+
+                    <br/>
+                    <br/>
+
+                    <p ng-init="getReceipt()"></p>
+
+                    <div ng-show="showReceipt">
+                        <table class="new" align="center" style="width: 1200px">
+                            <tr>
+                                <td ng-repeat="product in allreceiptproducts" style="text-align: left;">
+
+
+                                    <label>Product Name:</label> {{product.name}}<br/>
+                                    <label>Unit Price:</label> R{{product.price}}<br/>
+                                    <label>Product Quantity:</label> {{product.quantity}}<br/>
+                                    <label>Unit Total:</label> R {{product.unitTotal}}
+                                    <br/>
+
+                                </td>
+
+                            </tr>
+
+                        </table>
+
+                        <br/>
+                        <br/>
+                        <label style="float: right">Total Price: R {{totalPrice}}</label>
+                        <br/>
+                        <br/>
+
+                    </div>
+                </div>
+                <button style="float: right" ng-click="PrintPreview()">Print Receipt</button>
+            </div>
+
+        </div>    
+    </body>
+</html>

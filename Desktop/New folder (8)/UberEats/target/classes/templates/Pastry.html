@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Pastry</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body>
+     
+   <div class="navbar">
+                   <ul><li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="Pastry.html">Pastry</a></li>
+                    <li><a href="BBQ.html">BBQ</a></li>
+                    <li><a href="Pizza.html">Pizza</a></li>
+                    <li><a href="Burger.html">Burger</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="Registration.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+              
+            </div>
+    	   <div class="container" ng-app="app">
+            <div class="row">
+                <div class="col-4" style="float:left;">
+
+                </div>
+                <div class="col-4" style="float:left;">
+                    <h1>Pastry</h1>
+                </div>
+                <div class="col-4" style="float:left;">
+
+                </div>
+            </div>
+
+            <div ng-controller="getallproductsthreeController" class="col-md-3">
+
+                <p ng-init="getAllProductsCategory()"></p>
+
+                <div ng-show="showAllProductThree">
+                    <table class="new">
+                        <td ng-repeat="product in allproducts.data">
+<div class="infor">
+                            <img src="{{product.imageFile}}" alt='product image'  width="150" height="160"/><br />
+                            Product Name: {{product.productName}}<br />
+                            Unit Price: R{{product.unitPrice}}<br />
+
+                            <a href="#" ng-click="sendToCart(product)"><p class="shop">Buy Now</p></a>
+ </div>
+                        </td>
+                    </table>
+                </div>
+                <p>{{getResultMessage}}</p>
+
+                <div ng-show="Cart">
+                    <a href="#" ng-click="getItems()"><img src="/images/cart.png" alt="Description" class="topright" align="right"/></a>
+                </div>
+            </div>
+
+
+        </div>    
+    </body>
+</html>

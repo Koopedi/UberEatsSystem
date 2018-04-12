@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Registration</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script
+        src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+        <script src="/angular.js"></script>
+        <link rel="stylesheet" type="text/css" href="/styles.css" />
+        <link rel="stylesheet"
+              href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" />
+
+    </head>
+    <body>
+        
+              <div class="navbar">
+               <ul><li style="float:left"><a  href="/"><img src="/images/logo.png" alt="Description" width="100" height="30"/></a></li>
+                    <li><a href="/">Home</a></li>
+                    
+                   <li><a href="Pastry.html">Pastry</a></li>
+                    <li><a href="BBQ.html">BBQ</a></li>
+                    <li><a href="Pizza.html">Pizza</a></li>
+                    <li><a href="Burger.html">Burger</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li><a href="Registration.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+                  
+            </div>
+        
+<div class="container" ng-app="app">
+            <div class="row">
+                <div class="col-4" style="float:left;">
+
+                </div>
+                <div class="col-4" style="float:left;">
+                    <h1>Restuarant Registration</h1>
+                </div>
+                <div class="col-4" style="float:left;">
+
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+
+                <form>
+                    
+                   Do you want to register as
+                   <br/> <select ng-model="myType" class="sel">
+                        <option value="">-Choose user type-</option>
+                        <option value="Customer">Customer</option>
+                        <option value="Driver">Driver</option>
+                        <option value="Administrator">Administrator</option>
+                        
+                    </select>
+
+                </form>
+                <br/>
+                <br/>
+               <!-- <a href="login.html">Or Login Here</a> -->
+                
+                <div ng-switch="myType">   
+                    <div ng-switch-when="Administrator">
+                        <div ng-controller="postAdministratorController" class="col-md-12">
+
+
+                            <form name="userForm" ng-submit="submitAdmin(userForm.$valid)" novalidate="true" class="reg">
+
+
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.id.$invalid}"> 
+                                    <input type="text" name="id" class="form-control" ng-model="id" placeholder="Enter ID number" required="true"/>
+                                   <p ng-show="userForm.id.$invalid" class="help-block">ID number is required.</p>
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.firstname.$invalid }">
+
+                                    <input type="text" name="firstname" class="form-control" ng-model="firstname" placeholder="Enter First Name" required="true" ng-minlength="3"/>
+                                     <p ng-show="userForm.firstname.$invalid" class="help-block">First Name is required.</p>
+                                     <p ng-show="userForm.username.$error.minlength" class="help-block">First name is too short.</p>
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.lastname.$invalid }">
+
+                                    <input type="text" name="lastname" class="form-control" ng-model="lastname" placeholder="Enter Last Name" required="true" ng-minlength="3"/>
+                                     <p ng-show="userForm.lastname.$invalid" class="help-block">Last Name is required.</p>
+                                    <p ng-show="userForm.lastname.$error.minlength" class="help-block">Last name is too short.</p>
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid}">
+
+                                    <input type="email" name="email" class="form-control" ng-model="email" placeholder="Enter Email Address" required="true"/>
+                                    <p ng-show="userForm.email.$invalid" class="help-block">Email address is required.</p>
+                                    <p ng-show="userForm.email.$invalid" class="help-block">Enter a valid email.</p>
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.password.$invalid }">
+
+                                    <input type="password" name="password" class="form-control" ng-model="password" placeholder="Enter Password" required="true" ng-minlength="6"/>
+                                     <p ng-show="userForm.password.$invalid" class="help-block">Password is required.</p>
+                                    <p ng-show="userForm.password.$error.minlength" class="help-block">Password is too short.</p>
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.phone.$invalid }">
+
+                                    <input type="text" name="phone" class="form-control" ng-model="phone" placeholder="Enter Phone Number" required="true" ng-minlength="10" ng-maxlength="10"/>
+                                    <p ng-show="userForm.phone.$invalid" class="help-block">Phone Number is required.</p>
+                                    <p ng-show="userForm.phone.$error.minlength" class="help-block">Phone number should be 10 digits.</p>
+                                    <p ng-show="userForm.phone.$error.maxlength" class="help-block">Phone number should be 10 digits.</p>
+
+                                </div>
+
+                                <br/><button class="btn-panel-big" ng-disabled="userForm.$invalid">Add New Administrator</button>
+
+                            </form>
+
+                            <br />
+                            <p class="results">{{postResultMessage}}</p>        
+
+                        </div>
+                    </div>
+
+                 
+
+                    <div ng-switch-when="Customer">
+                        <div ng-controller="postCustomerController" class="col-md-12">
+
+                            <form name="userForm" ng-submit="submitCustomer(userForm.$valid)" novalidate="true" class="reg">
+
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.id.$invalid}"> 
+                                    <input type="text" name="id" class="form-control" ng-model="id" placeholder="Enter ID number" required="true" ng-minlength="13" ng-maxlength="13"/>
+                                 <!--   <p ng-show="userForm.id.$invalid" class="help-block">ID number is required.</p>-->
+                                  <!--  <p ng-show="userForm.id.$error.minlength" class="help-block">ID Number should be 13 digits.</p>-->
+                                  <!--  <p ng-show="userForm.id.$error.maxlength" class="help-block">ID Number should be 13 digits.</p>-->
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.firstname.$invalid }">
+
+                                    <input type="text" name="firstname" class="form-control" ng-model="firstname" placeholder="Enter First Name" required="true" ng-minlength="3"/>
+                                   <!-- <p ng-show="userForm.firstname.$invalid" class="help-block">First Name is required.</p>-->
+                                   <!-- <p ng-show="userForm.username.$error.minlength" class="help-block">First name is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.lastname.$invalid }">
+
+                                    <input type="text" name="lastname" class="form-control" ng-model="lastname" placeholder="Enter Last Name" required="true" ng-minlength="3"/>
+                                  <!--  <p ng-show="userForm.lastname.$invalid" class="help-block">Last Name is required.</p>-->
+                                   <!-- <p ng-show="userForm.lastname.$error.minlength" class="help-block">Last name is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid}">
+
+                                    <input type="email" name="email" class="form-control" ng-model="email" placeholder="Enter Email Address" required="true"/>
+                                   <!-- <p ng-show="userForm.email.$invalid" class="help-block">Email address is required.</p>-->
+                                   <!-- <p ng-show="userForm.email.$invalid" class="help-block">Enter a valid email.</p>-->
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.password.$invalid }">
+
+                                    <input type="password" name="password" class="form-control" ng-model="password" placeholder="Enter Password" required="true" ng-minlength="6"/>
+                                  <!--  <p ng-show="userForm.password.$invalid" class="help-block">Password is required.</p>-->
+                                  <!--  <p ng-show="userForm.password.$error.minlength" class="help-block">Password is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.phone.$invalid }">
+
+                                    <input type="number" name="phone" class="form-control" ng-model="phone" placeholder="Enter Phone Number" required="true" ng-minlength="10" ng-maxlength="10"/>
+                                   <!-- <p ng-show="userForm.phone.$invalid" class="help-block">Phone Number is required.</p>-->
+                                   <!-- <p ng-show="userForm.phone.$error.minlength" class="help-block">Phone number should be 10 digits.</p>-->
+                                   <!-- <p ng-show="userForm.phone.$error.maxlength" class="help-block">Phone number should be 10 digits.</p>-->
+
+                                </div>
+
+                                <div class="gen">
+
+
+                                    <p class="gen">Gender</p>
+                                    <label for="fRadio" class="lab">Female:</label>
+                                    <input id="fRadio" type="radio" ng-model="genderValue" value="female    " />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    <label for="mRadio" class="lab">Male:</label>
+                                    <input id="mRadio" type="radio" ng-model="genderValue" value="   male" /><br />
+
+                                </div>
+
+
+                                <br/><button class="btn-panel-big" ng-disabled="userForm.$invalid">Add New Customer</button>
+
+
+                            </form>
+                            <br />
+                            <p class="results">{{postResultMessage}}</p>        
+
+                        </div>
+                    </div>               
+                    <div ng-switch-when="Driver">
+                        <div ng-controller="postDriverController" class="col-md-12">
+
+                            <form name="userForm" ng-submit="submitDriver(userForm.$valid)" novalidate="true" class="reg">
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.id.$invalid}"> 
+                                    <input type="text" name="id" class="form-control" ng-model="id" placeholder="Enter Registration Number" required="true"/>
+                                  <!--  <p ng-show="userForm.id.$invalid" class="help-block">Registration Number is required.</p>-->
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.drivername.$invalid }">
+
+                                    <input type="text" name="drivername" class="form-control" ng-model="drivername" placeholder="Enter Driver Name" required="true" ng-minlength="3"/>
+                                  <!--  <p ng-show="userForm.drivername.$invalid" class="help-block">Driver Name is required.</p>-->
+                                  <!--  <p ng-show="userForm.drivername.$error.minlength" class="help-block">Driver Name is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.streetname.$invalid }">
+
+                                    <input type="text" name="streetname" class="form-control" ng-model="streetname" placeholder="Enter Street Name" required="true" ng-minlength="3"/>
+                                   <!-- <p ng-show="userForm.streetname.$invalid" class="help-block">Street Name is required.</p>-->
+                                   <!-- <p ng-show="userForm.streetname.$error.minlength" class="help-block">Street Name is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.areaname.$invalid }">
+
+                                    <input type="text" name="areaname" class="form-control" ng-model="areaname" placeholder="Enter Area Namer" required="true" ng-minlength="3"/>
+                                  <!--  <p ng-show="userForm.areaname.$invalid" class="help-block">Area Name is required.</p>-->
+                                   <!-- <p ng-show="userForm.areaname.$error.minlength" class="help-block">Area Name is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.city.$invalid }">
+
+                                    <input type="text" name="city" class="form-control" ng-model="city" placeholder="Enter City" required="true" ng-minlength="3"/>
+                                   <!-- <p ng-show="userForm.city.$invalid" class="help-block">City is required.</p>-->
+                                   <!-- <p ng-show="userForm.city.$error.minlength" class="help-block">City is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.province.$invalid }">
+
+                                    <input type="text" name="province" class="form-control" ng-model="province" placeholder="Enter Province" required="true" ng-minlength="3"/>
+                                   <!-- <p ng-show="userForm.province.$invalid" class="help-block">Province is required.</p>-->
+                                   <!-- <p ng-show="userForm.province.$error.minlength" class="help-block">Province is too short.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid}">
+
+                                    <input type="email" name="email" class="form-control" ng-model="email" placeholder="Enter Email Address" required="true"/>
+                                   <!-- <p ng-show="userForm.email.$invalid" class="help-block">Email address is required.</p>-->
+                                   <!-- <p ng-show="userForm.email.$invalid" class="help-block">Enter a valid email.</p>-->
+
+                                </div>
+
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.password.$invalid }">
+
+                                    <input type="password" name="password" class="form-control" ng-model="password" placeholder="Enter Password" required="true" ng-minlength="6"/>
+                                   <!-- <p ng-show="userForm.password.$invalid" class="help-block">Password is required.</p>-->
+                                   <!-- <p ng-show="userForm.password.$error.minlength" class="help-block">Password is too short.</p>-->
+
+                                </div>
+                                <div class="form-group" ng-class="{ 'has-error' :userForm.phone.$invalid }">
+
+                                    <input type="number" name="phone" class="form-control" ng-model="phone" placeholder="Enter Phone Number" required="true" ng-minlength="10" ng-maxlength="10"/>
+                                   <!-- <p ng-show="userForm.phone.$invalid" class="help-block">Phone Number is required.</p>-->
+                                   <!-- <p ng-show="userForm.phone.$error.minlength" class="help-block">Phone number should be 10 digits.</p>-->
+                                   <!-- <p ng-show="userForm.phone.$error.maxlength" class="help-block">Phone number should be 10 digits.</p>-->
+
+                                </div>
+
+
+
+                                <br/><button class="btn-panel-big" ng-disabled="userForm.$invalid">Add New Driver</button>-->
+
+                            </form>
+                            <br/>
+                            <p class="results">{{postResultMessage}}</p>        
+
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
